@@ -1,251 +1,204 @@
-# Health Insurance Premium Prediction using Machine Learning
+# Health Insurance Prediction using Machine Learning
 
-## Overview
-
-This project predicts health insurance premium charges based on an individual's demographic and health-related information using Machine Learning. The model helps estimate insurance costs by analyzing factors such as age, BMI, smoking status, gender, number of children, and region.
-
-The project includes:
-
-- Data loading and preprocessing
-- Exploratory Data Analysis (EDA)
-- Feature engineering and encoding
-- Multiple Linear Regression models
-- Model evaluation and comparison
-- Premium charge prediction for new customers
+This project uses Machine Learning techniques to predict health insurance charges based on an individual's personal and health-related information. The model is trained using a health insurance dataset and demonstrates the complete Machine Learning workflow, from data preprocessing to prediction.
 
 ---
 
-## Problem Statement
+## Project Overview
 
-Health insurance premiums vary based on several personal and lifestyle factors. The objective of this project is to build a predictive model that estimates medical insurance charges accurately.
-
-The model uses customer information such as:
-
-- Age
-- Gender
-- BMI (Body Mass Index)
-- Number of Children
-- Smoking Status
-- Region
-
-to predict the corresponding insurance charges.
+Health insurance companies determine premium charges using several factors such as age, BMI, smoking habits, and other demographic information. This project aims to build a predictive model that estimates insurance charges accurately using Linear Regression.
 
 ---
 
-## Dataset Information
+## Dataset
 
-The dataset contains the following features:
+The dataset used in this project is:
 
-| Feature | Description |
-|--------|--------|
-| Age | Age of the customer |
-| Sex | Male or Female |
-| BMI | Body Mass Index |
-| Children | Number of dependents covered by insurance |
-| Smoker | Smoking status |
-| Region | Residential region |
-| Charges | Insurance premium charges (Target Variable) |
+- `insurance_prediction.csv`
+
+### Features
+
+| Column Name | Description |
+|------------|-------------|
+| age | Age of the customer |
+| sex | Gender of the customer |
+| bmi | Body Mass Index |
+| children | Number of dependent children |
+| smoker | Smoking status (Yes/No) |
+| region | Residential region |
+| charges | Insurance charges (Target Variable) |
 
 ---
 
 ## Technologies Used
 
 - Python
+- Jupyter Notebook / Google Colab
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
 - Scikit-learn
-- Google Colab
 
 ---
 
-## Libraries Used
+## Machine Learning Workflow
 
-```python
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-```
+The project follows the following steps:
 
----
-
-## Project Workflow
-
-```
-Dataset
-   ↓
-Data Cleaning & Exploration
-   ↓
-Exploratory Data Analysis
-   ↓
-Data Preprocessing
-   ↓
-Feature Encoding
-   ↓
-Feature Scaling
-   ↓
-Train-Test Split
-   ↓
-Linear Regression Modeling
-   ↓
-Model Evaluation
-   ↓
-Model Comparison
-   ↓
-Prediction on New Data
-```
+1. Data Collection
+2. Data Loading
+3. Data Cleaning
+4. Exploratory Data Analysis (EDA)
+5. Data Preprocessing
+6. Feature Encoding
+7. Feature Scaling
+8. Train-Test Split
+9. Model Training
+10. Model Evaluation
+11. Prediction of Insurance Charges
 
 ---
 
 ## Exploratory Data Analysis
 
-The notebook performs:
+The notebook includes:
 
-- Distribution analysis of numerical features.
-- Pie chart visualization for categorical features.
+- Statistical summary of the dataset.
+- Distribution plots for numerical features.
 - Correlation analysis.
-- Box plots for insurance charges.
-- Scatter plots for understanding relationships between variables.
+- Visualization of categorical features.
+- Relationship between features and insurance charges.
 
-### Key Observations
+Key insights include:
 
-- Smokers have significantly higher insurance charges.
-- Age has a positive relationship with insurance premiums.
-- BMI moderately affects insurance charges.
-- Regional differences exist but are less significant.
-- Using all available features improves prediction accuracy considerably.
+- Smoking significantly increases insurance charges.
+- Insurance charges tend to increase with age.
+- BMI has an impact on insurance costs.
+- Combining multiple features improves prediction accuracy.
 
 ---
 
 ## Data Preprocessing
 
-The following preprocessing techniques were applied:
+The following preprocessing techniques are applied:
 
-### Categorical Encoding
+### Encoding
 
-- One Hot Encoding
+Categorical variables are converted into numerical values using:
 
-Features encoded:
-- Sex
-- Smoker
-- Region
+- One-Hot Encoding
 
 ### Feature Scaling
 
+Numerical features are standardized using:
+
 - StandardScaler
 
-Scaled numerical features:
-- Age
-- BMI
-- Children
+### Dataset Split
 
-### Data Split
-
-- Training Data: 80%
-- Testing Data: 20%
+- Training Data – 80%
+- Testing Data – 20%
 
 ---
 
-## Machine Learning Models
+## Model Used
 
-Three Linear Regression models were built and compared.
+The project uses:
 
-| Model | Features Used |
-|------|------|
-| Model 1 | Age |
-| Model 2 | Age + BMI |
-| Model 3 | All Features |
+- Multiple Linear Regression
+
+Several models are trained using different combinations of features to compare their performance.
 
 ---
 
-## Model Evaluation Metrics
+## Evaluation Metrics
 
-The following metrics were used:
+The model is evaluated using:
 
 - Mean Squared Error (MSE)
-- R-Squared Score (R²)
+- R² Score (Coefficient of Determination)
 
-### Why These Metrics?
-
-- Lower MSE indicates fewer prediction errors.
-- Higher R² indicates better model performance.
-
-Special attention is given to reducing underestimation of insurance premiums, which can impact insurance pricing strategies.
+These metrics help determine the accuracy and reliability of the predictions.
 
 ---
 
-## Model Comparison
+## Project Structure
 
-| Model | Performance |
-|------|------|
-| Model 1 | Poor performance |
-| Model 2 | Slight improvement |
-| Model 3 | Best performance |
+```
+Health Insurance Prediction/
+│
+├── Health_Insurance_Prediction_ML.ipynb
+├── insurance_prediction.csv
+└── README.md
+```
 
-### Final Selected Model
+---
 
-**Model 3 (All Features)** was selected because it provides:
+## How to Run the Project
 
-- Highest R² score
-- Lowest prediction error
-- Better generalization on unseen data
+1. Clone the repository:
+
+```bash
+git clone <your-repository-link>
+```
+
+2. Navigate to the project folder:
+
+```bash
+cd Health-Insurance-Prediction
+```
+
+3. Install the required libraries:
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn
+```
+
+4. Open the notebook:
+
+```bash
+jupyter notebook
+```
+
+5. Run all the cells in:
+
+```text
+Health_Insurance_Prediction_ML.ipynb
+```
 
 ---
 
 ## Results
 
-- Age alone is insufficient for accurate premium prediction.
-- Adding BMI improves performance slightly.
-- Including all customer attributes significantly improves prediction accuracy.
-- Smoking status is one of the most influential factors affecting insurance costs.
+- Successfully predicts health insurance charges.
+- Demonstrates the complete Machine Learning pipeline.
+- Shows how different features influence insurance premiums.
+- Highlights the importance of proper data preprocessing and feature selection.
 
 ---
 
-## Conclusion
+## Future Enhancements
 
-This project successfully builds a Health Insurance Premium Prediction model using Multiple Linear Regression.
+Some possible improvements include:
 
-The model demonstrates that:
-
-- Insurance premiums are influenced by multiple factors.
-- Proper data preprocessing significantly improves model performance.
-- Linear Regression performs effectively when all relevant features are included.
-- Machine Learning can assist insurance providers in estimating premiums more accurately.
-
----
-
-## Repository Structure
-
-```
-Health-Insurance-Prediction/
-
-│
-├── Health_Insurance_Prediction_ML.ipynb
-├── README.md
-└── Dataset (insurance_prediction.csv)
-```
-
----
-
-## Future Improvements
-
-- Implement advanced regression models:
-  - Random Forest Regressor
-  - XGBoost Regressor
-  - Gradient Boosting
-  - Support Vector Regression
-
-- Perform hyperparameter tuning.
-- Deploy the model using Streamlit or Flask.
-- Build an interactive web application for premium prediction.
+- Random Forest Regressor
+- XGBoost Regressor
+- Gradient Boosting
+- Hyperparameter Tuning
+- Streamlit Web Application Deployment
 
 ---
 
 ## Author
 
 **Dharshan R**
+---
 
-Final Year Electronics and Communication Engineering Student
+## Repository Contents
+
+| File Name | Description |
+|----------|------------|
+| Health_Insurance_Prediction_ML.ipynb | Complete Machine Learning notebook |
+| insurance_prediction.csv | Dataset used for training and testing |
+| README.md | Project documentation |
